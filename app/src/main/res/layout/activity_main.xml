@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layout">
+
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/bmapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true">
+
+    </com.baidu.mapapi.map.MapView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="8dp"
+            android:layout_weight="2"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <AutoCompleteTextView
+                android:id="@+id/auto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="10"
+                android:completionHint="请选择您要去的地方"
+                android:textColorHint="@color/colorAccent"
+                android:textSize="15dp"
+                android:singleLine="true"
+                android:dropDownHorizontalOffset="15dp"
+                android:completionThreshold="1"
+                android:background="@drawable/shape_button"/>
+
+            <ImageButton
+                android:id="@+id/search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/button_selector" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_marginTop="15dp">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    fab:cardCornerRadius="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/cardTop"
+                    fab:cardBackgroundColor="@color/black"
+                    android:visibility="invisible">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="关闭介绍模式"
+                        android:padding="10dp"
+                        android:textColor="@color/white"
+                        android:id="@+id/textTop"/>
+                </android.support.v7.widget.CardView>
+
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    fab:cardCornerRadius="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/navigation_button"
+                    fab:cardBackgroundColor="@color/black"
+                    android:visibility="invisible">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:textColor="@color/white"
+                        android:id="@+id/navigation_textTop"/>
+                </android.support.v7.widget.CardView>
+
+
+
+            </RelativeLayout>
+
+            <com.getbase.floatingactionbutton.FloatingActionsMenu
+                android:id="@+id/multiple_actions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                fab:fab_addButtonColorNormal="@color/black"
+                fab:fab_addButtonColorPressed="@color/black2"
+                fab:fab_expandDirection="down"
+                fab:fab_labelStyle="@style/floatingActionsMenu_fab_style">
+
+                <com.getbase.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/action_a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    fab:fab_colorNormal="@color/black"
+                    fab:fab_colorPressed="@color/black2"
+                    fab:fab_icon="@drawable/daohang03_dangqian"
+                    fab:fab_size="mini"
+                    fab:fab_title="当前位置" />
+
+                <com.getbase.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/action_b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    fab:fab_colorNormal="@color/black"
+                    fab:fab_colorPressed="@color/black2"
+                    fab:fab_icon="@drawable/daohang02_jingdian"
+                    fab:fab_size="mini"
+                    fab:fab_title="景点介绍" />
+
+                <com.getbase.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/action_c"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    fab:fab_colorNormal="@color/black"
+                    fab:fab_colorPressed="@color/black2"
+                    fab:fab_icon="@drawable/daohang01_daohang"
+                    fab:fab_size="mini"
+                    fab:fab_title="两点导航" />
+
+            </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="10dp">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:visibility="invisible"
+            android:id="@+id/card"
+            android:background="#88ffffff"
+            fab:cardCornerRadius="20dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="3dp">
+
+            <ScrollView
+                android:id="@+id/attraction_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_weight="2">
+
+                        <ImageView
+                            android:id="@+id/attraction_image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"/>
+
+                        <TextView
+                            android:id="@+id/attraction_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:paddingLeft="10dp"
+                            android:singleLine="false"
+                            android:textSize="20dp"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/whole_ifo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:singleLine="false"
+                        android:layout_marginTop="13dp"
+                        android:maxEms="20" />
+                </LinearLayout>
+
+            </ScrollView>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/distance_cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        fab:cardCornerRadius="20dp"
+        android:layout_margin="5dp"
+        android:visibility="invisible">
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:background="@color/black"
+            android:gravity="center"
+            android:text="123456"
+            android:textSize="30dp"
+            android:padding="5dp"
+            android:textColor="#ffffff" />
+
+    </android.support.v7.widget.CardView>
+
+
+</RelativeLayout>

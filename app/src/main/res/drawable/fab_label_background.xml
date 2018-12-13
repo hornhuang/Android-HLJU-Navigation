@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/white"/>
+    <padding
+        android:left="16dp"
+        android:top="4dp"
+        android:right="16dp"
+        android:bottom="4dp"/>
+    <!--//离内边框的距离-->
+
+    <corners
+        android:radius="5dp" />
+    <!--//边框四个叫的弧度-->
+
+    <stroke
+        android:width="0dp"
+        android:color="@color/text_color" />
+    <!--//边框边线的宽度和颜色-->
+
+</shape>

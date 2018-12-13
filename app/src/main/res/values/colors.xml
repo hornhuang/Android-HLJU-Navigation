@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+
+    <color name="colorPrimaryDark">#2a2b2b</color>
+
+    <color name="colorAccent">#c0c0c0</color>
+
+    <color name="buttonSelected">#ffffff</color>
+
+    <color name="buttonUnSelected">#c0c0c0</color>
+
+    <color name="white">#ffffff</color>
+
+    <color name="black">#2a2b2b</color>
+
+    <color name="gray">#aaaaaa</color>
+
+    <color name="black2">#4a4a4a</color>
+
+    <!--floatingactionbutton's coclor-->
+    <color name="text_color">#000000</color>
+
+    <!--button pressed and un pressed-->
+    <color name="red">#D81B60</color>
+
+
+    <!--distance-->
+    <color name="distanceOfRoad">#ffffff</color>
+</resources>
