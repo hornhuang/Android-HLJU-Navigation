@@ -3,14 +3,9 @@ package com.example.a30797.hljunavigationsystem.ImageProcessing;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
 import android.graphics.Matrix;
-import android.graphics.PixelFormat;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.util.Log;
 
-import com.example.a30797.hljunavigationsystem.MainActivity;
+import com.example.a30797.hljunavigationsystem.activities.MainActivity;
 import com.example.a30797.hljunavigationsystem.attractions.Scenic;
 
 import java.io.ByteArrayInputStream;

@@ -1,4 +1,4 @@
-package com.example.a30797.hljunavigationsystem;
+package com.example.a30797.hljunavigationsystem.activities;
 
 import android.Manifest;
 import android.app.Activity;
@@ -15,6 +15,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.CardView;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AutoCompleteTextView;
@@ -31,7 +32,6 @@ import android.hardware.SensorManager;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.map.MapPoi;
-import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.MapView;
@@ -43,15 +43,13 @@ import com.baidu.mapapi.model.LatLng;
 import com.example.a30797.hljunavigationsystem.Animation.TopAniHandlerHide;
 import com.example.a30797.hljunavigationsystem.Animation.TopAniHandlerShow;
 import com.example.a30797.hljunavigationsystem.Choose.ChoosePlace;
-import com.example.a30797.hljunavigationsystem.Floyd.EdgeToMatrix;
-import com.example.a30797.hljunavigationsystem.Floyd.Floyd;
 import com.example.a30797.hljunavigationsystem.ImageProcessing.ImageProcessing;
 import com.example.a30797.hljunavigationsystem.Position.LocationSetter;
 import com.example.a30797.hljunavigationsystem.Position.LocateAnimation;
 import com.example.a30797.hljunavigationsystem.Position.MyLocationListener;
 import com.example.a30797.hljunavigationsystem.Position.MyOrientationListener;
 import com.example.a30797.hljunavigationsystem.Position.ReloacateAnimationForAll;
-import com.example.a30797.hljunavigationsystem.Position.RelocateAnimation;
+import com.example.a30797.hljunavigationsystem.R;
 import com.example.a30797.hljunavigationsystem.attractions.Attractions_ifo;
 import com.example.a30797.hljunavigationsystem.attractions.Scenic;
 import com.example.a30797.hljunavigationsystem.mainFunction.FromPointToPoint;
@@ -66,7 +64,14 @@ import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import java.util.Arrays;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends BaseActivity {
+
+    //手指按下的点为(x1, y1)手指离开屏幕的点为(x2, y2)
+    private float x1 = 0;
+    private float x2 = 0;
+    private float y1 = 0;
+    private float y2 = 0;
+
     public static MainActivity mainActivity;
     //定位服务
     public LocationSetter locationSetter;
@@ -123,8 +128,8 @@ public class MainActivity extends Activity {
     };
 
     /*
-获得用户个人定位
- */
+    获得用户个人定位
+     */
     private void initLocationOption() {
         //定位服务的客户端。宿主程序在客户端声明此类，并调用，目前只支持在主线程中启动
         locationClient = new LocationClient(getApplicationContext());
@@ -513,4 +518,31 @@ public class MainActivity extends Activity {
         handler.sendMessage();
     }
 
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+//        Toast.makeText(MainActivity.this, "slipe", Toast.LENGTH_SHORT).show();
+        //继承了Activity的onTouchEvent方法，直接监听点击事件
+        if(ev.getAction() == MotionEvent.ACTION_DOWN) {
+            //当手指按下的时候
+            x1 = ev.getX();
+            y1 = ev.getY();
+        }
+        if(ev.getAction() == MotionEvent.ACTION_UP) {
+            //当手指离开的时候
+            x2 = ev.getX();
+            y2 = ev.getY();
+            if(y1 - y2 > 50) {
+//                Toast.makeText(MainActivity.this, "向上滑", Toast.LENGTH_SHORT).show();
+                floatingActionsMenu.animate().translationY(-300).setDuration(1500);
+            } else if(y2 - y1 > 50) {
+//                Toast.makeText(MainActivity.this, "向下滑", Toast.LENGTH_SHORT).show();
+                floatingActionsMenu.animate().translationY(0);
+            } else if(x1 - x2 > 50) {
+//                Toast.makeText(MainActivity.this, "向左滑", Toast.LENGTH_SHORT).show();
+            } else if(x2 - x1 > 50) {
+//                Toast.makeText(MainActivity.this, "向右滑", Toast.LENGTH_SHORT).show();
+            }
+        }
+        return super.dispatchTouchEvent(ev);
+    }
 }

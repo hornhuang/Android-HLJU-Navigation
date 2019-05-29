@@ -2,12 +2,7 @@ package com.example.a30797.hljunavigationsystem.Position;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Bundle;
-import android.os.Message;
-import android.util.Log;
-import android.widget.RelativeLayout;
 
-import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
@@ -18,7 +13,7 @@ import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.utils.DistanceUtil;
 import com.example.a30797.hljunavigationsystem.ImageProcessing.ImageProcessing;
-import com.example.a30797.hljunavigationsystem.MainActivity;
+import com.example.a30797.hljunavigationsystem.activities.MainActivity;
 import com.example.a30797.hljunavigationsystem.R;
 
 public class RelocateAnimation extends Thread{
