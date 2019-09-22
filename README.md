@@ -5,11 +5,11 @@
 #### 掘金/简书/CSDN
 ![导航](https://github.com/FishInWater-1999/Android-HLJU-Navigation/blob/master/readme_picture/1.jpg)
 ![景点](https://github.com/FishInWater-1999/Android-HLJU-Navigation/blob/master/readme_picture/2.jpg)
-![景点](https://github.com/FishInWater-1999/Android-HLJU-Navigation/blob/master/readme_picture/Sep-22-2019 10-35-28.gif)
+![景点](https://github.com/FishInWater-1999/Android-HLJU-Navigation/blob/master/readme_picture/Sep-22-201910-35-28.gif)
 #### 两点导航
 ![导航](https://github.com/FishInWater-1999/Android-HLJU-Navigation/blob/master/readme_picture/3.jpg)
 ![开启界面](https://github.com/FishInWater-1999/Android-HLJU-Navigation/blob/master/readme_picture/4.jpg)
-![景点](https://github.com/FishInWater-1999/Android-HLJU-Navigation/blob/master/readme_picture/Sep-22-2019 10-36-50.gif)
+![景点](https://github.com/FishInWater-1999/Android-HLJU-Navigation/blob/master/readme_picture/Sep-22-201910-36-50.gif)
 
 # LICENSE
 
