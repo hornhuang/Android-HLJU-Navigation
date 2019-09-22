@@ -65,8 +65,9 @@ import java.util.Arrays;
 
 
 public class MainActivity extends BaseActivity {
-
-    //手指按下的点为(x1, y1)手指离开屏幕的点为(x2, y2)
+    /**
+     * 手指按下的点为(x1, y1)手指离开屏幕的点为(x2, y2)
+     */
     private float x1 = 0;
     private float x2 = 0;
     private float y1 = 0;
@@ -77,23 +78,37 @@ public class MainActivity extends BaseActivity {
     public LocationSetter locationSetter;
     //当前方向信息
     public MyOrientationListener myOrientationListener;
+
     private MapView mMapView = null;
+
     public BaiduMap mBaiduMap;
-    //显式传递数据
-    Intent intent;
+
     private static AutoCompleteTextView autoCompleteTextView;
+
     LocationClient locationClient;
+
     private SensorManager manager;
+
     private MySensorEventListener listener;
+
     private Sensor magneticSensor, accelerometerSensor;
+
     public float[] values, r, gravity, geomagnetic;
-    //景点信息
+    /**
+     * 景点信息
+     */
     public View view;
+
     private FloatingActionsMenu floatingActionsMenu;
+
     public ImageButton buttonSearch;
+
     private float azimuth;
+
     public static boolean flag = false;
+
     private static boolean threadFlag = false;
+
     private boolean flag2=false;
 
     private static Handler handler = new Handler(){
@@ -127,8 +142,8 @@ public class MainActivity extends BaseActivity {
         }
     };
 
-    /*
-    获得用户个人定位
+    /**
+     * 获得用户个人定位
      */
     private void initLocationOption() {
         //定位服务的客户端。宿主程序在客户端声明此类，并调用，目前只支持在主线程中启动
@@ -174,7 +189,7 @@ public class MainActivity extends BaseActivity {
         myOrientationListener = new MyOrientationListener(
                 getApplicationContext());
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        mMapView = (MapView) findViewById(R.id.bmapView);
+        mMapView  = findViewById(R.id.bmapView);
         Toast.makeText(MainActivity.this,mBaiduMap+"",Toast.LENGTH_SHORT).show();
         mBaiduMap = mMapView.getMap();
 
@@ -196,7 +211,7 @@ public class MainActivity extends BaseActivity {
          */
         //
         final CardView cardView=findViewById(R.id.cardTop);
-        final FloatingActionButton actionC = (FloatingActionButton) findViewById(R.id.action_c);
+        final FloatingActionButton actionC = findViewById(R.id.action_c);
         actionC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -212,7 +227,7 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-        final FloatingActionButton actionB = (FloatingActionButton) findViewById(R.id.action_b);
+        final FloatingActionButton actionB = findViewById(R.id.action_b);
         actionB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -230,7 +245,7 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-        final FloatingActionButton actionA = (FloatingActionButton) findViewById(R.id.action_a);
+        final FloatingActionButton actionA = findViewById(R.id.action_a);
         actionA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -276,11 +291,11 @@ public class MainActivity extends BaseActivity {
             public boolean onMarkerClick(Marker marker){
 
                 CardView cardView=mainActivity.findViewById(R.id.card);
-                ScrollView scrollView = (ScrollView) cardView.findViewById(R.id.attraction_scroll);
+                ScrollView scrollView = cardView.findViewById(R.id.attraction_scroll);
                 scrollView.getLayoutParams().height = mainActivity.getWindowManager().getDefaultDisplay().getHeight()/3;
-                ImageView imageView = (ImageView) cardView.findViewById(R.id.attraction_image);
-                TextView textView02 = (TextView) cardView.findViewById(R.id.whole_ifo);
-                TextView textView = (TextView) cardView.findViewById(R.id.attraction_name);
+                ImageView imageView   = cardView.findViewById(R.id.attraction_image);
+                TextView textView02   = cardView.findViewById(R.id.whole_ifo);
+                TextView textView     = cardView.findViewById(R.id.attraction_name);
                 imageView.getLayoutParams().width=imageView.getLayoutParams().height=mainActivity.getWindowManager().getDefaultDisplay().getWidth()/3;
 
                 for (Scenic i:Attractions_ifo.Attractions_ifo){
@@ -312,7 +327,7 @@ public class MainActivity extends BaseActivity {
         /*
         顶部搜索
          */
-        final ImageButton buttonSearch = (ImageButton) findViewById(R.id.search);
+        final ImageButton buttonSearch = findViewById(R.id.search);
         //修改图标大小
         Bitmap bitmap01 = BitmapFactory.decodeResource(mainActivity.getResources(),R.drawable.search);
         bitmap01 = ImageProcessing.ChangBitmapSize(bitmap01,10,10);
@@ -378,8 +393,11 @@ public class MainActivity extends BaseActivity {
         Toast.makeText(MainActivity.this,"亲~ 记得打开数据和GPS呦~",Toast.LENGTH_SHORT).show();
     }
 
-    /*
-    结束上一活动回到本活动
+    /**
+     * 结束上一活动回到本活动
+     * @param requestCode
+     * @param resultCode
+     * @param twoPoints
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent twoPoints){
@@ -470,8 +488,9 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-    /*
-    开启定位图层
+    /**
+     * 开启定位图层
+     * @throws Exception
      */
     private void setMapLocationData() throws Exception{
         // 开启定位图层
@@ -520,8 +539,8 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-//        Toast.makeText(MainActivity.this, "slipe", Toast.LENGTH_SHORT).show();
-        //继承了Activity的onTouchEvent方法，直接监听点击事件
+        // Toast.makeText(MainActivity.this, "slipe", Toast.LENGTH_SHORT).show();
+        // 继承了Activity的onTouchEvent方法，直接监听点击事件
         if(ev.getAction() == MotionEvent.ACTION_DOWN) {
             //当手指按下的时候
             x1 = ev.getX();
@@ -532,10 +551,8 @@ public class MainActivity extends BaseActivity {
             x2 = ev.getX();
             y2 = ev.getY();
             if(y1 - y2 > 50) {
-//                Toast.makeText(MainActivity.this, "向上滑", Toast.LENGTH_SHORT).show();
                 floatingActionsMenu.animate().translationY(-300).setDuration(1500);
             } else if(y2 - y1 > 50) {
-//                Toast.makeText(MainActivity.this, "向下滑", Toast.LENGTH_SHORT).show();
                 floatingActionsMenu.animate().translationY(0);
             } else if(x1 - x2 > 50) {
 //                Toast.makeText(MainActivity.this, "向左滑", Toast.LENGTH_SHORT).show();
