@@ -2,10 +2,9 @@
 > 黑龙江大学校园导航系统，由我和我同学一起搭建。总计费时三周，以百度地图为基础，现已基本完成，时间2018年12月13日晚，于冰城
 
 # 界面
-#### 导航/景点
+#### 掘金/简书/CSDN
 ![导航](https://github.com/FishInWater-1999/Android-HLJU-Navigation/blob/master/1.jpg)
 ![景点](https://github.com/FishInWater-1999/Android-HLJU-Navigation/blob/master/2.jpg)
-
 #### 两点导航
 ![导航](https://github.com/FishInWater-1999/Android-HLJU-Navigation/blob/master/3.jpg)
 ![开启界面](https://github.com/FishInWater-1999/Android-HLJU-Navigation/blob/master/4.jpg)
