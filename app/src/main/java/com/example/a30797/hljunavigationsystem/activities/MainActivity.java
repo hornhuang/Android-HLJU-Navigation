@@ -141,26 +141,6 @@ public class MainActivity extends BaseActivity {
         }
     };
 
-    /**
-     * 获得用户个人定位
-     */
-    private void initLocationOption() {
-        //定位服务的客户端。宿主程序在客户端声明此类，并调用，目前只支持在主线程中启动
-        locationClient = new LocationClient(getApplicationContext());
-        //声明LocationClient类实例并配置定位参数
-        MyLocationListener myLocationListener = new MyLocationListener(locationSetter,mBaiduMap,locationClient);
-        //注册监听函数
-        locationClient.registerLocationListener(myLocationListener);
-        LocationClientOption locationOption = new LocationClientOption();
-        //可选，默认gcj02，设置返回的定位结果坐标系，如果配合百度地图使用，建议设置为bd09ll;
-        locationOption.setCoorType("bd09ll");
-        locationOption.setOpenGps(true);
-        locationOption.setLocationNotify(true);
-        locationClient.setLocOption(locationOption);
-        //开始定位
-        locationClient.start();
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         SDKInitializer.initialize(getApplicationContext());
@@ -170,9 +150,6 @@ public class MainActivity extends BaseActivity {
 
         //请求GPS权限
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-
-
-
 
         manager = (SensorManager) getSystemService(SENSOR_SERVICE);
         listener = new MySensorEventListener();
@@ -202,13 +179,9 @@ public class MainActivity extends BaseActivity {
         autoCompleteTextView = ChoosePlace.setAutoCompleteTextView(autoCompleteTextView,this );
         mainActivity = MainActivity.this;
 
-
-
-
         /*
         设置三个悬浮按钮的监听事件
          */
-        //
         final CardView cardView=findViewById(R.id.cardTop);
         final FloatingActionButton actionC = findViewById(R.id.action_c);
         actionC.setOnClickListener(new View.OnClickListener() {
@@ -393,6 +366,26 @@ public class MainActivity extends BaseActivity {
     }
 
     /**
+     * 获得用户个人定位
+     */
+    private void initLocationOption() {
+        //定位服务的客户端。宿主程序在客户端声明此类，并调用，目前只支持在主线程中启动
+        locationClient = new LocationClient(getApplicationContext());
+        //声明LocationClient类实例并配置定位参数
+        MyLocationListener myLocationListener = new MyLocationListener(locationSetter,mBaiduMap,locationClient);
+        //注册监听函数
+        locationClient.registerLocationListener(myLocationListener);
+        LocationClientOption locationOption = new LocationClientOption();
+        //可选，默认gcj02，设置返回的定位结果坐标系，如果配合百度地图使用，建议设置为bd09ll;
+        locationOption.setCoorType("bd09ll");
+        locationOption.setOpenGps(true);
+        locationOption.setLocationNotify(true);
+        locationClient.setLocOption(locationOption);
+        //开始定位
+        locationClient.start();
+    }
+
+    /**
      * 结束上一活动回到本活动
      * @param requestCode
      * @param resultCode
@@ -540,24 +533,24 @@ public class MainActivity extends BaseActivity {
     public boolean dispatchTouchEvent(MotionEvent ev) {
         // Toast.makeText(MainActivity.this, "slipe", Toast.LENGTH_SHORT).show();
         // 继承了Activity的onTouchEvent方法，直接监听点击事件
-        if(ev.getAction() == MotionEvent.ACTION_DOWN) {
-            //当手指按下的时候
-            x1 = ev.getX();
-            y1 = ev.getY();
-        }
-        if(ev.getAction() == MotionEvent.ACTION_UP) {
-            //当手指离开的时候
-            x2 = ev.getX();
-            y2 = ev.getY();
-            if(y1 - y2 > 50) {
-                floatingActionsMenu.animate().translationY(-300).setDuration(1500);
-            } else if(y2 - y1 > 50) {
-                floatingActionsMenu.animate().translationY(0);
-            } else if(x1 - x2 > 50) {
-//                Toast.makeText(MainActivity.this, "向左滑", Toast.LENGTH_SHORT).show();
-            } else if(x2 - x1 > 50) {
-//                Toast.makeText(MainActivity.this, "向右滑", Toast.LENGTH_SHORT).show();
-            }
+        switch (ev.getAction() ) {
+            case MotionEvent.ACTION_DOWN:
+                //当手指按下的时候
+                x1 = ev.getX();
+                y1 = ev.getY();
+                break;
+            case MotionEvent.ACTION_UP:
+                //当手指离开的时候
+                x2 = ev.getX();
+                y2 = ev.getY();
+                if(y1 - y2 > 50) {
+                    floatingActionsMenu.animate().translationY(-300).setDuration(500);
+                } else if(y2 - y1 > 50) {
+                    floatingActionsMenu.animate().translationY(0).setDuration(500);
+                }
+                break;
+            default:
+                break;
         }
         return super.dispatchTouchEvent(ev);
     }
