@@ -1,4 +1,4 @@
-package com.example.a30797.hljunavigationsystem.Position;
+package com.example.a30797.hljunavigationsystem.position;
 
 import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
@@ -12,7 +12,7 @@ import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
 import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
-import com.example.a30797.hljunavigationsystem.ImageProcessing.ImageProcessing;
+import com.example.a30797.hljunavigationsystem.imageProcessing.ImageProcessing;
 import com.example.a30797.hljunavigationsystem.activities.MainActivity;
 import com.example.a30797.hljunavigationsystem.R;
 

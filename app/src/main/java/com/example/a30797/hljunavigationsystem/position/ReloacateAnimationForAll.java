@@ -1,18 +1,10 @@
-package com.example.a30797.hljunavigationsystem.Position;
-
-import android.util.Log;
+package com.example.a30797.hljunavigationsystem.position;
 
 import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.BitmapDescriptor;
-import com.baidu.mapapi.map.BitmapDescriptorFactory;
 import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
-import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.utils.DistanceUtil;
-
-import java.util.Arrays;
 
 public class ReloacateAnimationForAll extends Thread{
 

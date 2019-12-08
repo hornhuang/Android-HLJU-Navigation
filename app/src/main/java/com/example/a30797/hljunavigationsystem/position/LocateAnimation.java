@@ -1,4 +1,4 @@
-package com.example.a30797.hljunavigationsystem.Position;
+package com.example.a30797.hljunavigationsystem.position;
 
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.MapStatus;

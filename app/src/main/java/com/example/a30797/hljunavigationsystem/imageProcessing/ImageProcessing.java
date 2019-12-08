@@ -1,4 +1,4 @@
-package com.example.a30797.hljunavigationsystem.ImageProcessing;
+package com.example.a30797.hljunavigationsystem.imageProcessing;
 
 import android.app.Activity;
 import android.graphics.Bitmap;

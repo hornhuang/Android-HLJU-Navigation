@@ -1,4 +1,4 @@
-package com.example.a30797.hljunavigationsystem.Position;
+package com.example.a30797.hljunavigationsystem.position;
 
 import android.content.Context;
 import android.hardware.Sensor;

@@ -1,7 +1,6 @@
 package com.example.a30797.hljunavigationsystem.activities;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -40,15 +39,15 @@ import com.baidu.mapapi.map.MyLocationData;
 
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.model.LatLng;
-import com.example.a30797.hljunavigationsystem.Animation.TopAniHandlerHide;
-import com.example.a30797.hljunavigationsystem.Animation.TopAniHandlerShow;
-import com.example.a30797.hljunavigationsystem.Choose.ChoosePlace;
-import com.example.a30797.hljunavigationsystem.ImageProcessing.ImageProcessing;
-import com.example.a30797.hljunavigationsystem.Position.LocationSetter;
-import com.example.a30797.hljunavigationsystem.Position.LocateAnimation;
-import com.example.a30797.hljunavigationsystem.Position.MyLocationListener;
-import com.example.a30797.hljunavigationsystem.Position.MyOrientationListener;
-import com.example.a30797.hljunavigationsystem.Position.ReloacateAnimationForAll;
+import com.example.a30797.hljunavigationsystem.animation.TopAniHandlerHide;
+import com.example.a30797.hljunavigationsystem.animation.TopAniHandlerShow;
+import com.example.a30797.hljunavigationsystem.choose.ChoosePlace;
+import com.example.a30797.hljunavigationsystem.imageProcessing.ImageProcessing;
+import com.example.a30797.hljunavigationsystem.position.LocationSetter;
+import com.example.a30797.hljunavigationsystem.position.LocateAnimation;
+import com.example.a30797.hljunavigationsystem.position.MyLocationListener;
+import com.example.a30797.hljunavigationsystem.position.MyOrientationListener;
+import com.example.a30797.hljunavigationsystem.position.ReloacateAnimationForAll;
 import com.example.a30797.hljunavigationsystem.R;
 import com.example.a30797.hljunavigationsystem.attractions.Attractions_ifo;
 import com.example.a30797.hljunavigationsystem.attractions.Scenic;

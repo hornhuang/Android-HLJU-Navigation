@@ -1,4 +1,4 @@
-package com.example.a30797.hljunavigationsystem.Choose;
+package com.example.a30797.hljunavigationsystem.choose;
 
 import android.app.Activity;
 import android.widget.ArrayAdapter;

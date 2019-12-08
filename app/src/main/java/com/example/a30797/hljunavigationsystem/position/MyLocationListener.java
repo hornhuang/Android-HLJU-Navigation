@@ -1,7 +1,6 @@
-package com.example.a30797.hljunavigationsystem.Position;
+package com.example.a30797.hljunavigationsystem.position;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 

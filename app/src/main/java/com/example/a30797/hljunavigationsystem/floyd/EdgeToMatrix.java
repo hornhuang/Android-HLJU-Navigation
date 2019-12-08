@@ -1,6 +1,4 @@
-package com.example.a30797.hljunavigationsystem.Floyd;
-
-import android.util.Log;
+package com.example.a30797.hljunavigationsystem.floyd;
 
 import com.example.a30797.hljunavigationsystem.schoolgate.Edge;
 import com.example.a30797.hljunavigationsystem.schoolgate.MyGraph;

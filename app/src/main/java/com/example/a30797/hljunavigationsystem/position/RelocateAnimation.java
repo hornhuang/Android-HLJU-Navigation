@@ -1,4 +1,4 @@
-package com.example.a30797.hljunavigationsystem.Position;
+package com.example.a30797.hljunavigationsystem.position;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -12,7 +12,7 @@ import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.utils.DistanceUtil;
-import com.example.a30797.hljunavigationsystem.ImageProcessing.ImageProcessing;
+import com.example.a30797.hljunavigationsystem.imageProcessing.ImageProcessing;
 import com.example.a30797.hljunavigationsystem.activities.MainActivity;
 import com.example.a30797.hljunavigationsystem.R;
 
